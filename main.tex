@@ -1,0 +1,191 @@
+\documentclass[letterpaper,10pt]{article}
+
+% Crisp Resume -- a compact, single-page resume template.
+% Compile with XeLaTeX (directly or through `make`).
+
+% ===============================
+% Page and type
+% ===============================
+
+\newlength{\margincomp}
+\newlength{\sectionbeforesep}
+\newlength{\sectionaftersep}
+\newlength{\itemizebeforesep}
+\newlength{\itemizeaftersep}
+\newlength{\parbeforesep}
+
+\setlength{\margincomp}{11pt}
+\setlength{\sectionbeforesep}{0.46875pt}
+\setlength{\sectionaftersep}{8.1pt}
+\setlength{\itemizebeforesep}{4.25pt}
+\setlength{\itemizeaftersep}{4.5pt}
+\setlength{\parbeforesep}{4.25pt}
+
+\usepackage[
+  margin=0.4in,
+  top={\dimexpr 0.4in - \margincomp\relax},
+  headheight=0pt,
+  headsep=0pt,
+  footskip=0pt
+]{geometry}
+
+\pagestyle{empty}
+\usepackage{ragged2e}
+\AtBeginDocument{\RaggedRight}
+\raggedbottom
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+% The layout was tuned against Palatino Linotype's exact metrics. Keep these
+% bundled font files in place if you want the original line and page spacing.
+\usepackage{fontspec}
+\setmainfont{pala}[
+  Path=./PalantinoLinotypeFontFiles/,
+  Extension=.ttf,
+  UprightFont=*,
+  BoldFont=*b,
+  ItalicFont=*i,
+  BoldItalicFont=*bi,
+  Script=Latin,
+  Language=English
+]
+
+\usepackage[english]{babel}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\urlstyle{same}
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}
+  {\large\scshape\RaggedRight}
+  {}{0pt}{}[\titlerule]
+\titlespacing*{\section}{0pt}{\sectionbeforesep}{\sectionaftersep}
+\BeforeBeginEnvironment{tabular*}{\vspace{-4.5pt}}
+
+% ===============================
+% Contact details -- edit these first
+% ===============================
+
+\newcommand{\Name}{First Last}
+\newcommand{\Phone}{(555) 555-5555}
+\newcommand{\Email}{first.last@example.com}
+\newcommand{\Website}{example.com}
+\newcommand{\GitHub}{github.com/username}
+
+% ===============================
+% Resume components
+% ===============================
+
+\newcommand{\resumeItem}[1]{
+  \item\small{#1}
+}
+
+\newcommand{\educationSubheading}[5]{%
+  \item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & {\small #2} \\[-1pt]
+    \textit{\small #3} & {\small #4} \\[-0.1347pt]
+  \end{tabular*}
+  {\small #5\par}
+}
+
+\newcommand{\resumeSubheading}[4]{%
+  \item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\[-1pt]
+    \textit{\small #3} & \textit{\small #4} \\[-4.3847pt]
+  \end{tabular*}%
+}
+
+\newcommand{\resumeProjectHeading}[2]{%
+  \item
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    #1 & #2 \\
+  \end{tabular*}\vspace{-4.25pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt,leftmargin=0.15in,label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\vspace{\itemizebeforesep}\begin{itemize}[itemsep=0pt,parsep=0pt,topsep=0pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{\itemizeaftersep}}
+
+% ===============================
+% Resume content
+% ===============================
+
+\begin{document}
+
+\begin{center}
+  \textbf{\Huge\scshape \Name} \\ \vspace{1pt}
+  \small
+  \Phone{} $|$
+  \href{mailto:\Email}{\underline{\Email}} $|$
+  \href{https://\Website}{\underline{\Website}} $|$
+  \href{https://\GitHub}{\underline{\GitHub}}\vspace{-10pt}
+\end{center}
+
+\section{Education}
+\resumeSubHeadingListStart
+  \educationSubheading
+    {University Name}{Graduation: Month Year}
+    {Degree and Major}{GPA: 4.00/4.00}
+    {\textit{Coursework:} Relevant Course, Another Course, Advanced Topic, Systems Course}
+\resumeSubHeadingListEnd
+
+\section{Experience}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Job Title}{Month Year -- Present}
+    {Company or Organization}{City, State}
+    \resumeItemListStart
+      \resumeItem{Led a specific initiative that produced a measurable result for users, customers, or the organization.}
+      \resumeItem{Built a system using relevant technologies, improving a key metric by 00\%.}
+      \resumeItem{Collaborated with a team of N to deliver a clearly scoped outcome under real constraints.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+    {Previous Role}{Month Year -- Month Year}
+    {Previous Organization}{City, State}
+    \resumeItemListStart
+      \resumeItem{Start each bullet with a strong verb and explain the result, not only the responsibility.}
+      \resumeItem{Add scale where it helps: users served, latency reduced, revenue earned, or hours saved.}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\section{Projects}
+\resumeSubHeadingListStart
+  \resumeProjectHeading
+    {\textbf{Project Name} $|$ \emph{Language, Framework, Tool}}{Month Year -- Present}
+    \resumeItemListStart
+      \resumeItem{Describe what the project does, why it matters, and the hardest technical problem you solved.}
+      \resumeItem{Quantify performance, adoption, accuracy, reliability, or another meaningful result.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{Second Project} $|$ \emph{Language, Framework, Tool}}{Month Year}
+    \resumeItemListStart
+      \resumeItem{Highlight your contribution and link the work from the heading when a public demo or repository exists.}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\section{Awards \& Leadership}
+\vspace{\dimexpr \parbeforesep - \sectionaftersep\relax}{%
+  \setlength{\leftskip}{0.15in}%
+  \small
+  \textbf{Award or Leadership Role:} brief context and selectivity or impact $|$
+  \textbf{Second Distinction:} brief context
+\par}
+
+\section{Skills}
+\vspace{\dimexpr \parbeforesep - \sectionaftersep\relax}{%
+  \setlength{\leftskip}{0.15in}%
+  \small
+  \textbf{Languages:} Python, JavaScript, C++, SQL $|$
+  \textbf{Frameworks:} Framework One, Framework Two $|$
+  \textbf{Tools:} Git, Linux, Docker, Cloud Platform
+\par}
+
+\end{document}

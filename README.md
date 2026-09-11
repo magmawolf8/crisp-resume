@@ -21,8 +21,6 @@ palai.ttf
 palabi.ttf
 ```
 
-The font directory is ignored by Git because the font is proprietary.
-
 ## Usage
 
 1. Set your contact details near the top of `main.tex`.
@@ -39,5 +37,3 @@ artifacts.
   consistently formatted.
 - Change the named spacing lengths near the top of `main.tex` when adjusting
   vertical spacing.
-
-Build files and the generated PDF are ignored by Git.

@@ -1,28 +1,43 @@
 # Crisp Resume
 
-A compact, single-page LaTeX resume template for US letter paper. It is based
-on Jake's Resume, with deliberately normalized spacing tuned for Palatino
-Linotype.
+Crisp Resume is a compact, single-page LaTeX resume template for US letter
+paper. It builds on Jake's Resume and uses explicit measurements to keep the
+layout consistent and easy to adjust.
 
-## Quick start
+The spacing is tuned for Palatino Linotype. Substituting another font may change
+line breaks and vertical alignment.
 
-1. Install a TeX distribution that includes XeLaTeX and `latexmk`.
-2. Edit the contact commands and example sections in `main.tex`.
-3. Run `make` to produce `main.pdf`.
+## Requirements
 
-Use `make clean` to remove generated LaTeX files. Build artifacts are ignored by
-Git.
+- A TeX distribution with XeLaTeX and `latexmk`
+- A licensed copy of Palatino Linotype
 
-## Customizing the template
+Place the font files in `PalantinoLinotypeFontFiles/` using these filenames:
 
-- Keep bullets focused on outcomes and add measurements when they are useful.
-- Reorder or remove sections to match the role; the sample content is only a
-  structural guide.
-- Adjust the named spacing lengths near the top of `main.tex` instead of adding
-  one-off vertical-space fixes throughout the document.
+```text
+pala.ttf
+palab.ttf
+palai.ttf
+palabi.ttf
+```
 
-The bundled Palatino Linotype files preserve the font metrics used while tuning
-the layout. Replacing the font can change line wrapping and vertical fit, even
-when the replacement is Palatino-compatible.
+The font directory is ignored by Git because the font is proprietary.
 
-The template intentionally contains no personal resume data or generated PDF.
+## Usage
+
+1. Set your contact details near the top of `main.tex`.
+2. Replace the example education, experience, project, and skills entries.
+3. Run `make`.
+
+The generated resume is written to `main.pdf`. Run `make clean` to remove build
+artifacts.
+
+## Adjusting the layout
+
+- Reorder or remove sections as needed.
+- Use the commands in the "Resume components" section to keep entries
+  consistently formatted.
+- Change the named spacing lengths near the top of `main.tex` when adjusting
+  vertical spacing.
+
+Build files and the generated PDF are ignored by Git.
